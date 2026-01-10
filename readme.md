@@ -29,38 +29,7 @@ curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/d
 sudo mv /tmp/eksctl /usr/local/bin
 eksctl version
 
-
-Create EKS CLUSTER
-eksctl create cluster --name=EKS-1 \
-                      --region=ap-south-1 \
-                      --zones=ap-south-1a,ap-south-1b \
-                      --without-nodegroup
-
-eksctl utils associate-iam-oidc-provider \
-    --region ap-south-1 \
-    --cluster EKS-1 \
-    --approve
-
-eksctl create nodegroup --cluster=EKS-1 \
-                       --region=ap-south-1 \
-                       --name=node2 \
-                       --node-type=t3.medium \
-                       --nodes=3 \
-                       --nodes-min=2 \
-                       --nodes-max=4 \
-                       --node-volume-size=20 \
-                       --ssh-access \
-                       --ssh-public-key=DevOps \
-                       --managed \
-                       --asg-access \
-                       --external-dns-access \
-                       --full-ecr-access \
-                       --appmesh-access \
-                       --alb-ingress-access
-
 sudo apt install openjdk-17-jre-headless
-
-
 
 
 sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
