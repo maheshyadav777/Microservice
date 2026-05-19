@@ -6,7 +6,7 @@ pipeline {
             steps {
              withKubeCredentials(kubectlCredentials: [[
     credentialsId: 'k8-token',
-    serverUrl: 'https://YOUR-EKS-ENDPOINT',
+    serverUrl: 'https://7883B78FCFC3ADFFAFCBCB5560BAECAC.yl4.us-east-1.eks.amazonaws.com',
     namespace: 'webapps'
 ]]) {
                     sh "kubectl apply -f deployment-service.yml"
