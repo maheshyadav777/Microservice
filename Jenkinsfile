@@ -5,7 +5,7 @@ pipeline {
         stage('Deploy To Kubernetes cluster') {
             steps {
              withKubeCredentials(kubectlCredentials: [[
-    credentialsId: 'k8token',
+    credentialsId: 'k8s',
     serverUrl: 'https://0579D5551F40F49ADE90EA1E6E685767.gr7.us-east-1.eks.amazonaws.com',
     namespace: 'webapps'
 ]]) {
